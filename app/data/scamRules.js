@@ -2,6 +2,18 @@ const hasAny = (text, words) => words.some((word) => text.includes(word))
 
 export const scamRules = [
   {
+    id: 'sensitive-context',
+    label: 'Context sensibil',
+    description: 'Mesajul menționează o instituție, un cont, o plată, un cod sau un serviciu unde verificarea oficială este importantă.',
+    weight: 1,
+    match: (text) => hasAny(text, ['banca', 'anaf', 'politie', 'curier', 'olx', 'whatsapp', 'booking', 'revolut', 'cont blocat', 'cod', 'link', 'plata']),
+    recommendations: [
+      'Nu acționa direct din mesaj.',
+      'Verifică separat pe canalul oficial.',
+      'Nu introduce date sensibile.'
+    ]
+  },
+  {
     id: 'urgency',
     label: 'Urgență falsă',
     description: 'Mesajul încearcă să te facă să acționezi imediat.',
@@ -92,16 +104,17 @@ export const scamRules = [
 ]
 
 export const defaultRecommendations = {
-  'Risc scăzut': [
-    'Verifică expeditorul și adresa linkului înainte să răspunzi.',
-    'Nu trimite date personale dacă mesajul pare neobișnuit.'
+  low: [
+    'Nu trata rezultatul ca pe o confirmare că mesajul este sigur.',
+    'Verifică expeditorul printr-un canal oficial înainte să răspunzi.',
+    'Nu introduce date sensibile într-un link primit prin mesaj.'
   ],
-  'Risc mediu': [
+  medium: [
     'Nu apăsa linkul până nu verifici sursa.',
     'Nu trimite coduri, parole sau date bancare.',
     'Contactează instituția doar prin canalele oficiale.'
   ],
-  'Risc ridicat': [
+  high: [
     'Nu apăsa linkul.',
     'Nu trimite coduri primite prin SMS.',
     'Nu introduce date bancare.',

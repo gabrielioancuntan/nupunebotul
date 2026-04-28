@@ -6,7 +6,7 @@ export function useScamAnalyzer() {
     const detectedRules = scamRules.filter((rule) => rule.match(normalizedMessage, message))
     const score = detectedRules.reduce((total, rule) => total + rule.weight, 0)
     const risk = getRiskLevel(score, detectedRules.length)
-    const recommendations = getRecommendations(detectedRules, risk.level)
+    const recommendations = getRecommendations(detectedRules, risk.key)
 
     return {
       score,
@@ -14,6 +14,7 @@ export function useScamAnalyzer() {
       levelClass: risk.levelClass,
       explanation: getExplanation(risk.level, detectedRules),
       detectedRules,
+      missingSignals: getMissingSignals(detectedRules),
       recommendations
     }
   }
@@ -33,38 +34,60 @@ function normalizeText(text) {
 function getRiskLevel(score, detectedCount) {
   if (score >= 8 || detectedCount >= 5) {
     return {
-      level: 'Risc ridicat',
+      key: 'high',
+      level: 'Semnale puternice de risc',
       levelClass: 'risk-high'
     }
   }
 
   if (score >= 4 || detectedCount >= 3) {
     return {
-      level: 'Risc mediu',
+      key: 'medium',
+      level: 'Mai multe semnale de risc',
       levelClass: 'risk-medium'
     }
   }
 
   return {
-    level: 'Risc scăzut',
+    key: 'low',
+    level: 'Nivel redus de semnale de risc',
     levelClass: 'risk-low'
   }
 }
 
 function getExplanation(level, detectedRules) {
-  if (level === 'Risc ridicat') {
+  if (level === 'Semnale puternice de risc') {
     return 'Mesajul are mai multe semne des întâlnite în tentative de fraudă. Tratează-l ca pe un mesaj periculos până verifici prin surse oficiale.'
   }
 
-  if (level === 'Risc mediu') {
+  if (level === 'Mai multe semnale de risc') {
     return 'Mesajul conține câteva semnale suspecte. Nu acționa în grabă și verifică expeditorul înainte să dai click sau să trimiți informații.'
   }
 
   if (detectedRules.length) {
-    return 'Am găsit puține semne suspecte, dar mesajul tot merită verificat cu atenție.'
+    return 'Am detectat puține indicii în text, dar asta nu confirmă că mesajul este în regulă. Verifică separat înainte să acționezi.'
   }
 
-  return 'Nu am găsit semne evidente în acest text. Totuși, verifică linkurile, expeditorul și cererile neobișnuite înainte să răspunzi.'
+  return 'Nu am detectat suficiente semnale clare de risc în textul introdus. Asta nu înseamnă că mesajul este sigur.'
+}
+
+function getMissingSignals(detectedRules) {
+  const detectedIds = new Set(detectedRules.map((rule) => rule.id))
+  const missing = []
+
+  if (!detectedIds.has('suspicious-link')) {
+    missing.push('Nu am detectat un link evident suspect în text.')
+  }
+
+  if (!detectedIds.has('sms-code') && !detectedIds.has('banking-data')) {
+    missing.push('Nu am detectat o cerere clară de cod SMS, parolă sau date bancare.')
+  }
+
+  if (!detectedIds.has('urgency') && !detectedIds.has('fear-pressure')) {
+    missing.push('Nu am detectat presiune evidentă de tip „urgent”, blocare sau amenințare.')
+  }
+
+  return missing.slice(0, 3)
 }
 
 function getRecommendations(detectedRules, level) {
