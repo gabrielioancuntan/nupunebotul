@@ -5,5 +5,10 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   tailwindcss: {
     cssPath: '~/assets/css/main.css'
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['@vue/devtools-core', '@vue/devtools-kit']
+    }
   }
 })
