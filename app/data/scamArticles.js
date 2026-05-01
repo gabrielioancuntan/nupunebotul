@@ -65,7 +65,7 @@ export const scamArticles = [
         answer: 'Sumele mici par mai credibile și îi fac pe oameni să acționeze repede, fără verificări.'
       }
     ],
-    related: ['banca-falsa', 'olx']
+    related: ['olx', 'whatsapp-cod', 'banca-falsa']
   },
   {
     slug: 'banca-falsa',
@@ -133,7 +133,7 @@ export const scamArticles = [
         answer: 'Da. Unele mesaje false sunt scrise corect și folosesc logo-uri sau nume reale.'
       }
     ],
-    related: ['anaf-fals', 'colet-fals']
+    related: ['anaf-fals', 'whatsapp-cod', 'olx']
   },
   {
     slug: 'anaf-fals',
@@ -201,7 +201,7 @@ export const scamArticles = [
         answer: 'Nu deschide atașamente neașteptate. Verifică întâi sursa printr-un canal oficial.'
       }
     ],
-    related: ['banca-falsa', 'colet-fals']
+    related: ['banca-falsa', 'colet-fals', 'olx']
   },
   {
     slug: 'whatsapp-cod',
@@ -269,7 +269,7 @@ export const scamArticles = [
         answer: 'Nu mereu, dar combinat cu vot, cod, PIN sau asociere devine un semn clar de risc.'
       }
     ],
-    related: ['olx', 'banca-falsa']
+    related: ['olx', 'colet-fals', 'banca-falsa']
   },
   {
     slug: 'olx',
@@ -337,7 +337,7 @@ export const scamArticles = [
         answer: 'Pentru a evita sistemele de raportare ale platformei și pentru a controla mai ușor conversația.'
       }
     ],
-    related: ['colet-fals', 'whatsapp-cod']
+    related: ['colet-fals', 'whatsapp-cod', 'banca-falsa']
   }
 ]
 
@@ -359,9 +359,16 @@ export function buildArticleJsonLd(article) {
     '@type': 'Article',
     headline: article.title,
     description: article.seoDescription,
+    articleSection: article.category,
+    about: article.cardTitle,
     inLanguage: 'ro-RO',
     mainEntityOfPage: url,
     url,
+    isPartOf: {
+      '@type': 'CollectionPage',
+      name: 'Biblioteca de țepe online',
+      url: 'https://nupunebotul.ro/tepe'
+    },
     publisher: {
       '@type': 'Organization',
       name: 'NuPuneBotul.ro',

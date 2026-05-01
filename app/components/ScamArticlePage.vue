@@ -92,6 +92,10 @@
 
       <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
         <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Articole similare</h2>
+        <p class="mt-0 text-[#536056]">
+          Merită citite împreună, pentru că multe fraude combină aceleași tactici:
+          presiune, linkuri, coduri și cereri de bani.
+        </p>
         <div class="grid grid-cols-2 gap-3 max-md:grid-cols-1">
           <NuxtLink
             v-for="relatedArticle in relatedArticles"
@@ -101,6 +105,22 @@
           >
             {{ relatedArticle.cardTitle }}
             <span class="mt-1 block font-normal text-[#536056]">{{ relatedArticle.summary }}</span>
+          </NuxtLink>
+        </div>
+      </section>
+
+      <section class="rounded-lg border border-[#bbdec8] bg-[#eefaf1] p-6">
+        <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Ai primit un mesaj asemănător?</h2>
+        <p class="max-w-[720px] text-[#46534a]">
+          Nu te grăbi să dai click, să trimiți bani sau să introduci coduri. Lipește textul
+          în verificator și caută separat canalul oficial al instituției sau platformei.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <NuxtLink to="/verifica" class="rounded-md bg-[#0f766e] px-5 py-3 font-extrabold text-white">
+            Verifică un mesaj suspect
+          </NuxtLink>
+          <NuxtLink to="/tepe" class="rounded-md border border-[#bfcdc0] bg-white px-5 py-3 font-extrabold text-[#162018]">
+            Înapoi la biblioteca de țepe
           </NuxtLink>
         </div>
       </section>

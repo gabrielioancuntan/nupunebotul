@@ -13,6 +13,7 @@ useSeoMeta({
   ogTitle: article.seoTitle,
   ogDescription: article.seoDescription,
   ogType: 'article',
+  twitterCard: 'summary',
   robots: 'index, follow'
 })
 

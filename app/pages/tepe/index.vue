@@ -9,7 +9,7 @@
       </h1>
       <p class="mt-[18px] max-w-[760px] text-[1.15rem] text-[#46534a]">
         Aici găsești explicații clare despre mesaje false de curier, bancă, ANAF, WhatsApp și OLX.
-        Paginile te ajută să recunoști tipare de risc mai repede, fără să tratezi rezultatul ca pe un verdict sigur.
+        Paginile te ajută să recunoști tipare de risc mai repede și să verifici separat înainte să acționezi.
       </p>
 
       <div class="mt-8 flex flex-wrap gap-3">
@@ -29,10 +29,28 @@
           <h2 class="mb-2.5 mt-0 text-[#162018]">{{ article.cardTitle }}</h2>
           <p class="text-[#536056]">{{ article.summary }}</p>
           <NuxtLink :to="`/tepe/${article.slug}`" class="mt-4 inline-flex rounded-md bg-[#162018] px-4 py-2 font-bold text-white">
-            Citește ghidul
+            Vezi semnele
           </NuxtLink>
         </article>
       </div>
+
+      <section class="mt-10 rounded-lg border border-[#dce5dc] bg-white/75 p-6">
+        <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Cum folosești biblioteca</h2>
+        <div class="grid grid-cols-3 gap-4 max-md:grid-cols-1">
+          <div>
+            <h3 class="mb-1 mt-0 text-lg text-[#162018]">1. Citește tiparul</h3>
+            <p class="m-0 text-[#536056]">Alege ghidul care seamănă cel mai mult cu mesajul primit.</p>
+          </div>
+          <div>
+            <h3 class="mb-1 mt-0 text-lg text-[#162018]">2. Verifică semnele</h3>
+            <p class="m-0 text-[#536056]">Uită-te după urgență, linkuri, coduri, bani sau date bancare.</p>
+          </div>
+          <div>
+            <h3 class="mb-1 mt-0 text-lg text-[#162018]">3. Nu acționa direct</h3>
+            <p class="m-0 text-[#536056]">Folosește verificatorul și confirmă separat pe canalul oficial.</p>
+          </div>
+        </div>
+      </section>
 
       <section class="mt-10 rounded-lg border border-[#dce5dc] bg-[#f7fbf7] p-6">
         <h2 class="mb-3 mt-0 text-2xl text-[#162018]">De ce contează tiparele</h2>
@@ -58,6 +76,7 @@ useSeoMeta({
   ogTitle: 'Bibliotecă de țepe online în România',
   ogDescription: 'Învață să recunoști mesajele suspecte și tiparele folosite în fraude online frecvente.',
   ogType: 'website',
+  twitterCard: 'summary',
   robots: 'index, follow'
 })
 
