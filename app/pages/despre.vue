@@ -5,7 +5,7 @@
       <h1 class="m-0 max-w-[760px] text-[clamp(2.2rem,6vw,4.7rem)] leading-none text-[#162018]">De ce există NuPuneBotul.ro</h1>
       <p class="mt-[18px] max-w-[700px] text-[1.15rem] text-[#46534a]">
         NuPuneBotul.ro este un proiect românesc, simplu și educativ, pentru oameni care vor să observe mai ușor semnele de risc din mesajele suspecte.
-        Instrumentul nu oferă verdicte oficiale și nu confirmă că un mesaj este sigur.
+        Instrumentul nu oferă verdicte oficiale și nu confirmă că un mesaj este în regulă.
       </p>
 
       <div class="mt-8 grid grid-cols-3 gap-[18px] max-md:grid-cols-1">

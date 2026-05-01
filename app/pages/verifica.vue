@@ -6,7 +6,7 @@
         <h1 class="m-0 max-w-[760px] text-[clamp(2.2rem,6vw,4.7rem)] leading-none text-[#162018]">Analiză rapidă pentru mesaje suspecte</h1>
         <p class="mt-[18px] max-w-[700px] text-[1.15rem] text-[#46534a]">
           Lipește un SMS, email, mesaj de WhatsApp sau text suspect și vezi ce indicii de risc apar.
-          Instrumentul nu oferă verdicte oficiale și nu poate garanta că un mesaj este sigur.
+          Instrumentul nu oferă verdicte oficiale și nu poate confirma că un mesaj este în regulă.
         </p>
       </header>
 
