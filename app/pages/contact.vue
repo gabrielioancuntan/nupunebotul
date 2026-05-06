@@ -6,22 +6,22 @@
           <p class="mb-2.5 mt-0 text-[0.9rem] font-bold uppercase tracking-[0.04em] text-[#0f766e]">Contact</p>
           <h1 class="m-0 max-w-[760px] text-[clamp(2.2rem,6vw,4.7rem)] leading-none text-[#162018]">Trimite un exemplu sau o sugestie</h1>
           <p class="mt-[18px] max-w-[700px] text-[1.15rem] text-[#46534a]">
-            Ai primit un SMS, email sau mesaj suspect? Il poti trimite anonimizat ca sa ne ajuti sa imbunatatim
-            biblioteca de exemple si explicatiile de pe site.
+            Ai primit un SMS, email sau mesaj suspect? Îl poți trimite anonimizat ca să ne ajuți să îmbunătățim
+            biblioteca de exemple și explicațiile de pe site.
           </p>
 
           <div class="mt-8 grid grid-cols-2 gap-4 max-md:grid-cols-1">
             <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-5">
-              <h2 class="mb-2 mt-0 text-xl text-[#162018]">Ce poti trimite aici</h2>
+              <h2 class="mb-2 mt-0 text-xl text-[#162018]">Ce poți trimite aici</h2>
               <ul class="m-0 grid gap-2 pl-5 text-[#46534a]">
-                <li>exemple de mesaje suspecte, fara date personale</li>
+                <li>exemple de mesaje suspecte, fără date personale</li>
                 <li>sugestii pentru ghiduri sau pagini noi</li>
-                <li>intrebari generale despre folosirea site-ului</li>
+                <li>întrebări generale despre folosirea site-ului</li>
               </ul>
             </section>
 
             <section class="rounded-lg border border-[#f0c27a] bg-[#fff7e6] p-5">
-              <h2 class="mb-2 mt-0 text-xl text-[#162018]">Ce sa NU trimiti</h2>
+              <h2 class="mb-2 mt-0 text-xl text-[#162018]">Ce să NU trimiți</h2>
               <ul class="m-0 grid gap-2 pl-5 text-[#5b3b0a]">
                 <li>parole, coduri SMS, OTP sau PIN</li>
                 <li>date de card, CNP, IBAN complet sau documente</li>
@@ -40,34 +40,49 @@
           <p class="mb-2 mt-0 text-sm font-bold uppercase tracking-[0.04em] text-[#0f766e]">Formular MVP</p>
           <h2 class="mb-4 mt-0 text-2xl text-[#162018]">Scrie mesajul</h2>
 
-          <p v-if="!formAction" class="rounded-lg bg-[#fff7e6] p-3 text-sm font-bold text-[#5b3b0a]">
-            Formularul nu este configurat inca.
-          </p>
+          <div
+            v-if="showSuccessMessage"
+            class="mb-4 flex items-start justify-between gap-3 rounded-lg border border-[#a7d7b8] bg-[#e8f8ee] p-4 text-[#14532d]"
+            role="status"
+            aria-live="polite"
+          >
+            <p class="m-0 text-sm font-bold leading-relaxed">
+              Mesajul a fost trimis. Mulțumim! Exemplul tău ne poate ajuta să îmbunătățim ghidurile și biblioteca de țepe.
+            </p>
+            <button
+              type="button"
+              class="rounded-md px-2 py-1 text-sm font-extrabold text-[#14532d] hover:bg-white/70"
+              aria-label="Închide mesajul de succes"
+              @click="dismissSuccessMessage"
+            >
+              x
+            </button>
+          </div>
 
-          <p v-if="submitStatus === 'success'" class="rounded-lg bg-[#eefaf1] p-3 text-sm font-bold text-[#14532d]">
-            Mesajul a fost trimis. Multumim pentru ajutor.
+          <p v-if="!formAction" class="rounded-lg bg-[#fff7e6] p-3 text-sm font-bold text-[#5b3b0a]">
+            Formularul nu este configurat încă.
           </p>
 
           <p v-if="submitStatus === 'error'" class="rounded-lg bg-[#fff1f1] p-3 text-sm font-bold text-[#991b1b]">
-            Nu am putut trimite mesajul. Incearca din nou mai tarziu.
+            Nu am putut trimite mesajul. Încearcă din nou mai târziu.
           </p>
 
           <label class="mb-4 grid gap-1 font-bold text-[#39483f]">
-            Nume sau pseudonim <span class="font-normal text-[#617065]">(optional)</span>
+            Nume sau pseudonim <span class="font-normal text-[#617065]">(opțional)</span>
             <input name="name" type="text" autocomplete="name" class="rounded-md border border-[#bfcdc0] bg-white px-3 py-2 font-medium text-[#162018]">
           </label>
 
           <label class="mb-4 grid gap-1 font-bold text-[#39483f]">
-            Email <span class="font-normal text-[#617065]">(optional)</span>
+            Email <span class="font-normal text-[#617065]">(opțional)</span>
             <input name="email" type="email" autocomplete="email" class="rounded-md border border-[#bfcdc0] bg-white px-3 py-2 font-medium text-[#162018]">
           </label>
 
           <label class="mb-4 grid gap-1 font-bold text-[#39483f]">
             Tip mesaj
             <select name="message_type" class="rounded-md border border-[#bfcdc0] bg-white px-3 py-2 font-medium text-[#162018]">
-              <option>Exemplu de teapa</option>
+              <option>Exemplu de țeapă</option>
               <option>Sugestie</option>
-              <option>Intrebare</option>
+              <option>Întrebare</option>
             </select>
           </label>
 
@@ -77,14 +92,14 @@
               name="message"
               required
               rows="7"
-              placeholder="Lipeste aici mesajul suspect dupa ce ai sters datele personale."
+              placeholder="Lipește aici mesajul suspect după ce ai șters datele personale."
               class="resize-y rounded-md border border-[#bfcdc0] bg-white px-3 py-2 font-medium text-[#162018]"
             />
           </label>
 
           <label class="mb-5 flex items-start gap-3 rounded-lg bg-[#f7fbf7] p-3 text-sm font-bold text-[#39483f]">
             <input name="no_sensitive_data" type="checkbox" required class="mt-1 h-4 w-4 flex-none accent-[#0f766e]">
-            <span>Confirm ca nu trimit parole, coduri SMS, date bancare, CNP sau alte date sensibile.</span>
+            <span>Confirm că nu trimit parole, coduri SMS, date bancare, CNP sau alte date sensibile.</span>
           </label>
 
           <button
@@ -96,8 +111,8 @@
           </button>
 
           <p class="mb-0 mt-4 text-sm text-[#536056]">
-            Mesajele primite pot fi folosite pentru imbunatatirea site-ului si a bibliotecii de exemple.
-            Raspunsul personal nu este garantat imediat.
+            Mesajele primite pot fi folosite pentru îmbunătățirea site-ului și a bibliotecii de exemple.
+            Răspunsul personal nu este garantat imediat.
           </p>
         </form>
       </div>
@@ -106,20 +121,20 @@
     <section class="pb-14">
       <div class="mx-auto grid w-[min(1120px,calc(100%_-_32px))] gap-6">
         <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Inainte sa trimiti</h2>
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Înainte să trimiți</h2>
           <p class="max-w-[820px] text-[#46534a]">
-            Daca mesajul pare urgent sau implica bani, verifica separat prin surse oficiale. Pentru o analiza rapida,
-            poti folosi verificatorul inainte sa ne trimiti exemplul.
+            Dacă mesajul pare urgent sau implică bani, verifică separat prin surse oficiale. Pentru o analiză rapidă,
+            poți folosi verificatorul înainte să ne trimiți exemplul.
           </p>
           <div class="mt-4 flex flex-wrap gap-3">
-            <NuxtLink to="/verifica" class="rounded-md bg-[#162018] px-4 py-2 font-bold text-white">Verifica un mesaj</NuxtLink>
-            <NuxtLink to="/tepe" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Biblioteca de tepe</NuxtLink>
-            <NuxtLink to="/ghid" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Ghid anti-frauda</NuxtLink>
+            <NuxtLink to="/verifica" class="rounded-md bg-[#162018] px-4 py-2 font-bold text-white">Verifică un mesaj</NuxtLink>
+            <NuxtLink to="/tepe" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Biblioteca de țepe</NuxtLink>
+            <NuxtLink to="/ghid" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Ghid anti-fraudă</NuxtLink>
           </div>
         </section>
 
         <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Intrebari frecvente</h2>
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Întrebări frecvente</h2>
           <div v-for="item in faq" :key="item.question" class="border-t border-[#dce5dc] py-4 first:border-t-0">
             <h3 class="m-0 text-lg text-[#162018]">{{ item.question }}</h3>
             <p class="mb-0 text-[#46534a]">{{ item.answer }}</p>
@@ -135,23 +150,25 @@ const config = useRuntimeConfig()
 const formAction = computed(() => config.public.formspreeEndpoint || '')
 const isSubmitting = ref(false)
 const submitStatus = ref('')
+const showSuccessMessage = computed(() => submitStatus.value === 'success')
+let successMessageTimer
 
 const faq = [
   {
     question: 'Pot trimite un SMS suspect?',
-    answer: 'Da, dar sterge inainte numele, numerele de telefon, codurile, adresele si orice date personale.'
+    answer: 'Da, dar șterge înainte numele, numerele de telefon, codurile, adresele și orice date personale.'
   },
   {
-    question: 'Pot trimite captura de ecran?',
-    answer: 'Pentru MVP, formularul este gandit pentru text. Daca folosesti ulterior o solutie cu fisiere, anonimizeaza captura inainte.'
+    question: 'Pot trimite captură de ecran?',
+    answer: 'Pentru MVP, formularul este gândit pentru text. Dacă folosești ulterior o soluție cu fișiere, anonimizează captura înainte.'
   },
   {
-    question: 'Ce fac daca am dat deja datele cardului?',
-    answer: 'Contacteaza imediat banca, blocheaza cardul daca este nevoie si verifica tranzactiile. Nu astepta raspuns prin formular.'
+    question: 'Ce fac dacă am dat deja datele cardului?',
+    answer: 'Contactează imediat banca, blochează cardul dacă este nevoie și verifică tranzacțiile. Nu aștepta răspuns prin formular.'
   },
   {
-    question: 'Trimiteti raspuns personalizat?',
-    answer: 'Nu garantam raspuns rapid sau personalizat. Mesajele ajuta in primul rand la imbunatatirea materialelor educationale.'
+    question: 'Trimiteți răspuns personalizat?',
+    answer: 'Nu garantăm răspuns rapid sau personalizat. Mesajele ajută în primul rând la îmbunătățirea materialelor educaționale.'
   }
 ]
 
@@ -160,6 +177,7 @@ async function handleSubmit(event) {
     return
   }
 
+  clearSuccessMessageTimer()
   isSubmitting.value = true
   submitStatus.value = ''
 
@@ -178,6 +196,9 @@ async function handleSubmit(event) {
 
     event.target.reset()
     submitStatus.value = 'success'
+    successMessageTimer = window.setTimeout(() => {
+      submitStatus.value = ''
+    }, 7000)
   } catch {
     submitStatus.value = 'error'
   } finally {
@@ -185,11 +206,27 @@ async function handleSubmit(event) {
   }
 }
 
+function dismissSuccessMessage() {
+  clearSuccessMessageTimer()
+  submitStatus.value = ''
+}
+
+function clearSuccessMessageTimer() {
+  if (successMessageTimer) {
+    window.clearTimeout(successMessageTimer)
+    successMessageTimer = null
+  }
+}
+
+onBeforeUnmount(() => {
+  clearSuccessMessageTimer()
+})
+
 useSeoMeta({
   title: 'Contact | Trimite exemple de mesaje suspecte | NuPuneBotul.ro',
-  description: 'Trimite exemple anonimizate de mesaje suspecte, sugestii sau intrebari pentru NuPuneBotul.ro. Nu trimite parole, coduri, date bancare sau CNP.',
+  description: 'Trimite exemple anonimizate de mesaje suspecte, sugestii sau întrebări pentru NuPuneBotul.ro. Nu trimite parole, coduri, date bancare sau CNP.',
   ogTitle: 'Contact NuPuneBotul.ro',
-  ogDescription: 'Trimite exemple anonimizate de mesaje suspecte, sugestii sau intrebari, fara date sensibile.',
+  ogDescription: 'Trimite exemple anonimizate de mesaje suspecte, sugestii sau întrebări, fără date sensibile.',
   ogType: 'website',
   twitterCard: 'summary',
   robots: 'index, follow'
