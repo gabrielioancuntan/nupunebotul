@@ -6,9 +6,18 @@
         <span class="h-3.5 w-3.5 flex-none rounded-full" :class="riskColorClass" />
         <h2 class="m-0 text-[1.8rem] font-bold text-[#162018]">{{ result.level }}</h2>
       </div>
+      <p v-if="result.warning" class="mt-4 rounded-lg bg-[#fff7e6] p-3 font-bold text-[#5b3b0a]">
+        {{ result.warning }}
+      </p>
 
       <section class="mt-[22px]">
         <h3 class="mb-2.5 mt-0 font-bold text-[#162018]">Ce am observat</h3>
+        <div v-if="result.matchedScenarios.length" class="mb-3 grid gap-2">
+          <div v-for="scenario in result.matchedScenarios" :key="scenario.id" class="rounded-lg bg-[#fff7e6] p-3 text-[#5b3b0a]">
+            <strong class="block">{{ scenario.label }}</strong>
+            <span class="mt-1 block">{{ scenario.description }}</span>
+          </div>
+        </div>
         <ul v-if="result.detectedRules.length" class="m-0 grid list-none gap-2.5 p-0">
           <li v-for="rule in result.detectedRules" :key="rule.id" class="rounded-lg bg-[#f7fbf7] p-3 text-[#39483f]">
             <strong class="block">{{ rule.label }}</strong>
@@ -19,7 +28,7 @@
           Nu am detectat suficiente semnale clare de risc în textul introdus.
         </p>
         <div class="mt-3 rounded-lg bg-[#fff7e6] p-3 text-[#5b3b0a]">
-          Asta nu înseamnă că mesajul este sigur. Unele fraude pot arăta corect sau pot folosi texte foarte scurte.
+          Asta nu este o confirmare că mesajul este în regulă. Unele fraude pot arăta corect sau pot folosi texte foarte scurte.
         </div>
         <ul v-if="result.missingSignals.length" class="mt-3 grid list-none gap-2 p-0">
           <li v-for="item in result.missingSignals" :key="item" class="rounded-lg bg-[#f7fbf7] p-3 text-[#536056]">
@@ -49,7 +58,7 @@
       <h2 class="m-0 text-[1.8rem] font-bold text-[#162018]">Analiza va apărea aici</h2>
       <p class="text-[#536056]">
         Lipește mesajul în formular și apasă „Analizează mesajul”. Verificarea folosește reguli simple,
-        oferă indicii educaționale și nu confirmă că un mesaj este sigur.
+        oferă indicii educaționale și nu confirmă că mesajul este în regulă.
       </p>
     </div>
   </aside>

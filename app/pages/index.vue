@@ -60,12 +60,28 @@
       <div class="mx-auto w-[min(1120px,calc(100%_-_32px))]">
         <p class="mb-2.5 mt-0 text-[0.9rem] font-bold uppercase tracking-[0.04em] text-[#0f766e]">Țepe comune</p>
         <h2 class="mb-3.5 mt-0 text-[clamp(1.8rem,4vw,2.7rem)] leading-tight text-[#162018]">Tipuri de mesaje care merită verificate</h2>
-        <ul class="mt-5 grid list-none gap-3 p-0">
-          <li class="rounded-lg border border-[#dce5dc] bg-white p-3.5 text-[#36433a]">SMS-uri cu livrări false sau taxe de colet.</li>
-          <li class="rounded-lg border border-[#dce5dc] bg-white p-3.5 text-[#36433a]">Mesaje care cer coduri bancare, parole sau confirmări urgente.</li>
-          <li class="rounded-lg border border-[#dce5dc] bg-white p-3.5 text-[#36433a]">Promisiuni de premii, investiții rapide sau câștiguri garantate.</li>
-          <li class="rounded-lg border border-[#dce5dc] bg-white p-3.5 text-[#36433a]">Conturi false care se dau drept rude, firme cunoscute sau instituții.</li>
-        </ul>
+        <p class="max-w-[760px] text-[1.05rem] text-[#4b5b50]">
+          Verificatorul și biblioteca acoperă mai multe scenarii frecvente: de la colete și bănci false
+          până la joburi remote, investiții, facturi urgente sau mesaje de la persoane apropiate.
+        </p>
+
+        <div class="mt-6 grid grid-cols-2 gap-3 max-[760px]:grid-cols-1">
+          <NuxtLink
+            v-for="scenario in suspiciousScenarios"
+            :key="scenario.title"
+            :to="scenario.to"
+            class="rounded-lg border border-[#dce5dc] bg-white/80 p-4 text-[#36433a] hover:border-[#9fc5ad] hover:bg-[#f7fbf7]"
+          >
+            <strong class="block text-[#162018]">{{ scenario.title }}</strong>
+            <span class="mt-1 block text-sm leading-relaxed text-[#536056]">{{ scenario.text }}</span>
+          </NuxtLink>
+        </div>
+
+        <div class="mt-6">
+          <NuxtLink to="/tepe" class="inline-flex rounded-md bg-[#162018] px-5 py-3 font-extrabold text-white">
+            Explorează biblioteca completă
+          </NuxtLink>
+        </div>
       </div>
     </section>
 
@@ -90,3 +106,58 @@
     </section>
   </div>
 </template>
+
+<script setup>
+const suspiciousScenarios = [
+  {
+    title: 'Curier sau colet blocat',
+    text: 'Taxă mică, redirecționare, locker sau link pentru livrare.',
+    to: '/tepe/colet-fals'
+  },
+  {
+    title: 'Bancă, card sau cont blocat',
+    text: 'Mesaje despre verificare urgentă, OTP, parolă sau date de card.',
+    to: '/tepe/banca-falsa'
+  },
+  {
+    title: 'ANAF, amendă sau rambursare',
+    text: 'Datorii, penalizări, rambursări și linkuri cu ton oficial.',
+    to: '/tepe/anaf-fals'
+  },
+  {
+    title: 'WhatsApp, cod sau concurs',
+    text: 'Voturi false, coduri trimise prin SMS și conturi preluate.',
+    to: '/tepe/whatsapp-cod'
+  },
+  {
+    title: 'OLX sau cumpărător fals',
+    text: 'Link de încasare, curier inventat și cereri de card.',
+    to: '/tepe/olx'
+  },
+  {
+    title: 'Job fals sau task-uri remote',
+    text: 'Plată zilnică, comisioane, grupuri și taxe ca să începi.',
+    to: '/tepe/job-fals'
+  },
+  {
+    title: 'Investiții și crypto',
+    text: 'Profit garantat, brokeri falși și taxe de retragere.',
+    to: '/tepe/investitii-false'
+  },
+  {
+    title: 'Apel fals de la bancă sau suport',
+    text: 'Cineva spune că banii sunt în pericol și cere acțiune rapidă.',
+    to: '/tepe/uzurpare-identitate'
+  },
+  {
+    title: 'Factură sau plată urgentă',
+    text: 'Utilități, servicii sau facturi restante cu link de plată.',
+    to: '/tepe/phishing'
+  },
+  {
+    title: 'Rudă sau prieten care cere bani',
+    text: 'Mesaje urgente din conturi preluate sau identități false.',
+    to: '/tepe/uzurpare-identitate'
+  }
+]
+</script>
