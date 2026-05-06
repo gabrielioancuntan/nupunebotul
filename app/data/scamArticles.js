@@ -1,3 +1,5 @@
+import { additionalScamArticles } from './additionalScamArticles'
+
 export const scamArticles = [
   {
     slug: 'colet-fals',
@@ -338,7 +340,8 @@ export const scamArticles = [
       }
     ],
     related: ['colet-fals', 'whatsapp-cod', 'banca-falsa']
-  }
+  },
+  ...additionalScamArticles
 ]
 
 export function getScamArticle(slug) {

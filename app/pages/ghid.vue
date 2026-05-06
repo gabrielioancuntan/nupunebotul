@@ -4,34 +4,32 @@
       <div class="mx-auto grid w-[min(1120px,calc(100%_-_32px))] grid-cols-[minmax(0,1.05fr)_minmax(300px,0.95fr)] items-start gap-7 max-md:grid-cols-1">
         <div>
           <p class="mb-2.5 mt-0 text-[0.9rem] font-bold uppercase tracking-[0.04em] text-[#0f766e]">
-            Ghid practic în pregătire
+            Ghid practic anti-frauda
           </p>
-          <h1 class="m-0 max-w-[780px] text-[clamp(2.2rem,6vw,4.7rem)] leading-none text-[#162018]">
-            Ghid anti-țeapă pentru familie
+          <h1 class="m-0 max-w-[820px] text-[clamp(2.2rem,6vw,4.7rem)] leading-none text-[#162018]">
+            Reguli simple pentru mesaje, apeluri si situatii suspecte
           </h1>
           <p class="mt-[18px] max-w-[720px] text-[1.15rem] text-[#46534a]">
-            Un ghid simplu, în română, pentru părinți, bunici și oameni care vor să recunoască
-            mai repede fraudele online fără explicații tehnice complicate.
+            Un ghid in romana pentru oameni care vor sa reactioneze mai calm si mai sigur cand primesc
+            un mesaj dubios, un apel neasteptat sau o cerere de bani.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#interes" class="rounded-md bg-[#0f766e] px-5 py-3 font-extrabold text-white">
-              Mă interesează ghidul
-            </a>
+            <NuxtLink to="/verifica" class="rounded-md bg-[#0f766e] px-5 py-3 font-extrabold text-white">
+              Verifica un mesaj
+            </NuxtLink>
             <NuxtLink to="/tepe" class="rounded-md border border-[#bfcdc0] bg-white px-5 py-3 font-extrabold text-[#162018]">
-              Vezi biblioteca de țepe
+              Vezi tipuri de tepe
             </NuxtLink>
           </div>
         </div>
 
         <aside class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
-          <p class="mb-2 mt-0 text-sm font-bold uppercase tracking-[0.04em] text-[#0f766e]">Format planificat</p>
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">PDF practic, ușor de trimis în familie</h2>
-          <ul class="grid gap-2 pl-5 text-[#46534a]">
-            <li>scris pe înțelesul tuturor</li>
-            <li>ușor de citit pe telefon</li>
-            <li>posibil de printat</li>
-            <li>potrivit pentru WhatsApp sau email</li>
-          </ul>
+          <p class="mb-2 mt-0 text-sm font-bold uppercase tracking-[0.04em] text-[#0f766e]">Regula de baza</p>
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Opreste-te. Verifica separat. Protejeaza-te.</h2>
+          <p class="m-0 text-[#46534a]">
+            Escrocii se bazeaza pe graba, frica sau promisiuni prea bune. O pauza de cateva minute poate
+            opri o pierdere reala.
+          </p>
         </aside>
       </div>
     </section>
@@ -39,9 +37,54 @@
     <section class="pb-14">
       <div class="mx-auto grid w-[min(1120px,calc(100%_-_32px))] gap-6">
         <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Cui i se potrivește</h2>
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Frauda sau escrocherie?</h2>
+          <div class="grid grid-cols-2 gap-4 max-md:grid-cols-1">
+            <div class="rounded-lg bg-[#f7fbf7] p-4">
+              <h3 class="mb-1 mt-0 text-lg text-[#162018]">Frauda</h3>
+              <p class="m-0 text-[#536056]">
+                Inseamna folosirea ilegala a datelor, cardului, contului sau accesului tau pentru tranzactii
+                ori modificari pe care nu le-ai autorizat.
+              </p>
+            </div>
+            <div class="rounded-lg bg-[#f7fbf7] p-4">
+              <h3 class="mb-1 mt-0 text-lg text-[#162018]">Escrocheria</h3>
+              <p class="m-0 text-[#536056]">
+                Este situatia in care esti convins sa crezi o poveste falsa: o institutie, un curier, un job,
+                o investitie sau o persoana care nu este cine spune.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="rounded-lg border border-[#dce5dc] bg-[#fff7e6] p-6">
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Daca ai fost deja pacalit</h2>
+          <div class="grid grid-cols-2 gap-3 max-md:grid-cols-1">
+            <div v-for="step in victimSteps" :key="step" class="rounded-lg bg-white/80 p-4 text-[#5b3b0a]">
+              {{ step }}
+            </div>
+          </div>
+        </section>
+
+        <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Cum iti protejezi parolele, accesul si banii</h2>
           <div class="grid grid-cols-3 gap-4 max-md:grid-cols-1">
-            <div v-for="item in audiences" :key="item.title" class="rounded-lg bg-[#f7fbf7] p-4">
+            <article v-for="group in protectionGroups" :key="group.title" class="rounded-lg bg-[#f7fbf7] p-4">
+              <h3 class="mb-2 mt-0 text-lg text-[#162018]">{{ group.title }}</h3>
+              <ul class="m-0 grid gap-2 pl-5 text-[#536056]">
+                <li v-for="item in group.items" :key="item">{{ item }}</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Cum verifici daca cineva chiar este cine spune</h2>
+          <p class="max-w-[820px] text-[#46534a]">
+            Nu te baza doar pe numele afisat, pe un logo sau pe un numar care pare cunoscut. Daca mesajul
+            sau apelul a venit pe neasteptate, inchide conversatia si verifica separat.
+          </p>
+          <div class="grid grid-cols-3 gap-4 max-md:grid-cols-1">
+            <div v-for="item in identityChecks" :key="item.title" class="rounded-lg bg-[#f7fbf7] p-4">
               <h3 class="mb-1 mt-0 text-lg text-[#162018]">{{ item.title }}</h3>
               <p class="m-0 text-[#536056]">{{ item.text }}</p>
             </div>
@@ -49,65 +92,60 @@
         </section>
 
         <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Ce conține ghidul</h2>
-          <ul class="grid grid-cols-2 gap-3 pl-5 text-[#46534a] max-md:grid-cols-1">
-            <li v-for="item in guideContents" :key="item">{{ item }}</li>
-          </ul>
-        </section>
-
-        <section class="rounded-lg border border-[#dce5dc] bg-[#f7fbf7] p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">De ce este util</h2>
-          <p class="max-w-[820px] text-[#46534a]">
-            Ghidul este gândit ca material de familie: scurt, practic și ușor de revenit la el
-            când apare un mesaj dubios. Scopul este să reducă panica și să ofere reguli clare:
-            oprește-te, verifică separat, nu trimite coduri, nu introduce date bancare.
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Semnale generale de risc</h2>
+          <p class="max-w-[780px] text-[#46534a]">
+            Un singur semn nu inseamna mereu frauda. Riscul creste cand apar mai multe impreuna:
           </p>
+          <ul class="grid grid-cols-2 gap-3 pl-5 text-[#46534a] max-md:grid-cols-1">
+            <li v-for="signal in riskSignals" :key="signal">{{ signal }}</li>
+          </ul>
         </section>
 
         <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Ce NU promite</h2>
-          <ul class="grid gap-2 pl-5 text-[#46534a]">
-            <li>Nu garantează detectarea tuturor fraudelor.</li>
-            <li>Nu înlocuiește verificarea prin canalele oficiale.</li>
-            <li>Nu este consultanță juridică sau bancară.</li>
-            <li>Este un material educațional și preventiv.</li>
-          </ul>
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Ce sa nu faci niciodata</h2>
+          <div class="grid grid-cols-2 gap-3 max-md:grid-cols-1">
+            <div v-for="item in neverDo" :key="item" class="rounded-lg bg-[#f7fbf7] p-4 text-[#39483f]">
+              {{ item }}
+            </div>
+          </div>
         </section>
 
-        <section id="interes" class="rounded-lg border border-[#bbdec8] bg-[#eefaf1] p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Vrei să afli când este gata?</h2>
-          <p class="max-w-[760px] text-[#46534a]">
-            Ghidul este în pregătire. Într-o etapă următoare vom adăuga aici un formular simplu
-            de interes, fără cont și fără date inutile.
-          </p>
-          <div class="mt-4 rounded-lg border border-dashed border-[#7ab48a] bg-white/70 p-4 text-[#3f5d46]">
-            Formularul de interes va fi adăugat aici. Până atunci, poți folosi verificatorul
-            și biblioteca de țepe pentru exemple concrete.
+        <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Tipuri de tepe pe care merita sa le cunosti</h2>
+          <div class="grid grid-cols-3 gap-3 max-[900px]:grid-cols-2 max-md:grid-cols-1">
+            <NuxtLink
+              v-for="article in featuredArticles"
+              :key="article.slug"
+              :to="`/tepe/${article.slug}`"
+              class="rounded-lg border border-[#dce5dc] bg-[#f7fbf7] p-4 font-bold text-[#162018]"
+            >
+              {{ article.cardTitle }}
+              <span class="mt-1 block font-normal text-[#536056]">{{ article.summary }}</span>
+            </NuxtLink>
           </div>
+        </section>
+
+        <section class="rounded-lg border border-[#bbdec8] bg-[#eefaf1] p-6">
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Ai un mesaj concret de verificat?</h2>
+          <p class="max-w-[760px] text-[#46534a]">
+            Ghidul te ajuta sa gandesti mai clar. Pentru un SMS, email sau mesaj de WhatsApp, foloseste
+            verificatorul si apoi confirma separat prin surse oficiale.
+          </p>
           <div class="mt-5 flex flex-wrap gap-3">
             <NuxtLink to="/verifica" class="rounded-md bg-[#0f766e] px-5 py-3 font-extrabold text-white">
-              Verifică un mesaj suspect
+              Verifica un mesaj suspect
             </NuxtLink>
             <NuxtLink to="/quiz" class="rounded-md border border-[#bfcdc0] bg-white px-5 py-3 font-extrabold text-[#162018]">
-              Încearcă quizul
+              Incearca quizul
             </NuxtLink>
           </div>
         </section>
 
         <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Întrebări frecvente</h2>
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Intrebari frecvente</h2>
           <div v-for="item in faq" :key="item.question" class="border-t border-[#dce5dc] py-4 first:border-t-0">
             <h3 class="m-0 text-lg text-[#162018]">{{ item.question }}</h3>
             <p class="mb-0 text-[#46534a]">{{ item.answer }}</p>
-          </div>
-        </section>
-
-        <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
-          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Legături utile până apare ghidul</h2>
-          <div class="flex flex-wrap gap-3">
-            <NuxtLink to="/verifica" class="rounded-md bg-[#162018] px-4 py-2 font-bold text-white">Verifică un mesaj</NuxtLink>
-            <NuxtLink to="/tepe" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Biblioteca de țepe</NuxtLink>
-            <NuxtLink to="/quiz" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Quiz pentru familie</NuxtLink>
           </div>
         </section>
       </div>
@@ -116,64 +154,88 @@
 </template>
 
 <script setup>
-const audiences = [
+import { scamArticles } from '~/data/scamArticles'
+
+const victimSteps = [
+  'Opreste comunicarea cu persoana care te preseaza.',
+  'Blocheaza cardul sau contul afectat cat mai repede.',
+  'Contacteaza banca ori furnizorul financiar prin canal oficial.',
+  'Raporteaza tranzactiile suspecte si pastreaza dovezile.',
+  'Schimba parolele daca ai oferit coduri, parole sau acces.',
+  'Mergi catre politie daca exista pierdere financiara sau amenintari.'
+]
+
+const protectionGroups = [
   {
-    title: 'Părinți și bunici',
-    text: 'Pentru oameni care primesc SMS-uri, emailuri sau mesaje pe WhatsApp și vor reguli simple.'
+    title: 'Parole si conturi',
+    items: ['foloseste parole diferite', 'evita date evidente, precum ziua de nastere', 'activeaza autentificarea in doi pasi']
   },
   {
-    title: 'Persoane mai puțin tehnice',
-    text: 'Explicații clare, fără jargon, cu exemple apropiate de situațiile de zi cu zi.'
+    title: 'Telefon si acces',
+    items: ['foloseste blocare biometrica unde exista', 'revizuieste dispozitivele conectate', 'nu instala aplicatii cerute prin apel']
   },
   {
-    title: 'Familii',
-    text: 'Un material care poate fi trimis mai departe și folosit ca punct de discuție în familie.'
+    title: 'Bani si carduri',
+    items: ['urmareste alertele de tranzactie', 'nu ignora avertismentele de securitate', 'nu muta bani intr-un cont indicat de un apelant']
   }
 ]
 
-const guideContents = [
-  'cele mai comune tipuri de țepe online',
-  'semne clare de risc explicate simplu',
-  'checklist-uri rapide pentru SMS, email și WhatsApp',
-  'ce faci dacă ai dat click',
-  'ce faci dacă ai introdus date bancare',
-  'ce faci dacă ai trimis un cod de verificare',
-  'reguli scurte care pot fi printate',
-  'exemple de mesaje false marcate clar ca exemple'
+const identityChecks = [
+  { title: 'Inchide si verifica', text: 'Daca apelul este neasteptat, inchide si cauta tu numarul oficial.' },
+  { title: 'Foloseste canale oficiale', text: 'Verifica in aplicatia, site-ul sau contul oficial, nu prin linkul primit.' },
+  { title: 'Confirma persoanele apropiate', text: 'Daca o ruda cere bani urgent, suna pe un numar cunoscut sau intreaba alt membru al familiei.' }
 ]
+
+const riskSignals = [
+  'presiune de timp sau urgenta',
+  'apel, SMS sau email neasteptat',
+  'cerere de coduri, parole, PIN sau date de card',
+  'cerere de acces la telefon sau calculator',
+  'transfer rapid catre un cont necunoscut',
+  'cerere de a ignora avertismentele din aplicatie',
+  'profit mare prezentat ca sigur',
+  'mutarea discutiei pe WhatsApp sau Telegram',
+  'poveste foarte convenabila sau dramatica',
+  'site, link sau expeditor greu de verificat'
+]
+
+const neverDo = [
+  'Nu trimite coduri OTP, coduri WhatsApp, PIN sau parole.',
+  'Nu introduce datele cardului intr-un link primit pe neasteptate.',
+  'Nu muta bani intr-un asa-zis cont sigur indicat la telefon.',
+  'Nu lasa pe nimeni sa iti controleze telefonul sau calculatorul.',
+  'Nu primi si retrimite bani pentru persoane necunoscute.',
+  'Nu plati taxe ca sa recuperezi un premiu, un job sau o investitie.'
+]
+
+const featuredArticles = scamArticles.filter((article) =>
+  ['phishing', 'uzurpare-identitate', 'investitii-false', 'job-fals', 'achizitii-false', 'caraus-de-bani'].includes(article.slug)
+)
 
 const faq = [
   {
-    question: 'Pentru cine este ghidul?',
-    answer: 'Pentru părinți, bunici, familii și orice persoană care vrea reguli simple pentru mesaje suspecte.'
+    question: 'Cum imi dau seama daca e doar un mesaj ciudat sau o frauda?',
+    answer: 'Cauta combinatii de semnale: urgenta, link, bani, coduri, parole, date de card sau presiune sa nu verifici separat.'
   },
   {
-    question: 'Este doar pentru seniori?',
-    answer: 'Nu. Este scris simplu, dar poate fi util oricui primește SMS-uri, emailuri sau mesaje de WhatsApp dubioase.'
+    question: 'Ce fac daca am dat click, dar nu am completat nimic?',
+    answer: 'Inchide pagina, nu descarca nimic si verifica separat contul oficial. Daca ai instalat ceva, cere ajutor tehnic.'
   },
   {
-    question: 'Înlocuiește verificarea oficială?',
-    answer: 'Nu. Ghidul este educațional și preventiv. Verificarea importantă se face prin site-ul, aplicația sau numărul oficial.'
+    question: 'Ce fac daca am introdus datele cardului?',
+    answer: 'Contacteaza banca imediat, blocheaza cardul daca este nevoie si urmareste tranzactiile.'
   },
   {
-    question: 'Va fi PDF?',
-    answer: 'Direcția planificată este un PDF practic, ușor de citit pe telefon și posibil de printat.'
-  },
-  {
-    question: 'Va putea fi trimis în familie?',
-    answer: 'Da, ideea este să fie ușor de trimis pe WhatsApp sau email, fără explicații complicate.'
-  },
-  {
-    question: 'Ce fac până apare?',
-    answer: 'Poți folosi verificatorul de mesaje și biblioteca de țepe pentru exemple și reguli rapide.'
+    question: 'Este suficient sa verific numarul de telefon?',
+    answer: 'Nu. Numele sau numarul afisat pot induce in eroare. Verifica prin aplicatia, site-ul sau numarul oficial gasit separat.'
   }
 ]
 
 useSeoMeta({
-  title: 'Ghid anti-țeapă pentru familie | NuPuneBotul.ro',
-  description: 'Ghid practic în pregătire pentru părinți, bunici și familii: reguli simple, checklist-uri și pași clari pentru mesaje suspecte.',
-  ogTitle: 'Ghid anti-țeapă pentru familie',
-  ogDescription: 'Un ghid simplu, în română, pentru familii care vor să recunoască mai repede fraudele online.',
+  title: 'Ghid anti-frauda: reguli simple pentru mesaje suspecte | NuPuneBotul.ro',
+  description: 'Ghid practic in romana despre fraude, escrocherii, parole, conturi, bani, verificarea identitatii si ce faci daca ai fost pacalit.',
+  ogTitle: 'Ghid anti-frauda pentru mesaje, apeluri si situatii suspecte',
+  ogDescription: 'Reguli clare: opreste-te, verifica separat si protejeaza-ti rapid conturile si banii.',
   ogType: 'website',
   twitterCard: 'summary',
   robots: 'index, follow'
@@ -187,8 +249,8 @@ useHead({
       children: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        name: 'Ghid anti-țeapă pentru familie',
-        description: 'Ghid practic în pregătire pentru recunoașterea fraudelor online.',
+        name: 'Ghid anti-frauda',
+        description: 'Reguli practice pentru recunoasterea si evitarea fraudelor online.',
         inLanguage: 'ro-RO',
         url: 'https://nupunebotul.ro/ghid',
         isPartOf: {
@@ -204,8 +266,8 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Acasă', item: 'https://nupunebotul.ro' },
-          { '@type': 'ListItem', position: 2, name: 'Ghid anti-țeapă pentru familie', item: 'https://nupunebotul.ro/ghid' }
+          { '@type': 'ListItem', position: 1, name: 'Acasa', item: 'https://nupunebotul.ro' },
+          { '@type': 'ListItem', position: 2, name: 'Ghid anti-frauda', item: 'https://nupunebotul.ro/ghid' }
         ]
       })
     },
