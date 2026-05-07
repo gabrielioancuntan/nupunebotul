@@ -41,8 +41,48 @@ const authorityWords = ['politie', 'bnr', 'anaf', 'institutie']
 const accountProblemWords = ['cont blocat', 'cont suspendat', 'acces suspendat', 'verificarea contului', 'confirmarea contului', 'confirmati contul', 'confirma contul', 'contul tau este investigat', 'contul tau a fost blocat', 'contul tau a fost suspendat', 'contul dvs a fost blocat', 'contul dvs a fost suspendat', 'contul a fost blocat', 'contul a fost suspendat', 'restrictionat temporar', 'cont compromis', 'card blocat', 'mi s-a blocat cardul', 'mi sa blocat cardul']
 const sensitiveDataWords = ['cnp', 'date personale', 'parola', 'pin', 'cvc', 'cvv', 'datele cardului', 'date card', 'date bancare']
 const codeWords = ['cod sms', 'codul primit', 'cod de verificare', 'codul de verificare', 'cod de autentificare', 'codul de autentificare', 'cod otp', 'otp', 'codul de securitate', 'cod 3d secure', '3d secure', 'cod whatsapp', 'pin whatsapp', 'cod de asociere', 'codul de asociere']
-const voteContestWords = ['voteaza', 'vot', 'concurs', 'bursa', 'scholarship', 'competitie', 'dance', 'ajuta-ma', 'ajuta ma']
-const prizeWords = ['premiu', 'revendica', 'ai castigat', 'am castigat', 'castig', 'castigat rapid', 'castig garantat', 'bani rapizi', 'recompensa', 'profit rapid', 'profit garantat', 'investitie', 'investeste acum', 'investit', 'fara risc', 'castiga acum', 'plata zilnica', 'oportunitate remote']
+const voteContestWords = [
+  'voteaza',
+  'votati',
+  'voteaz-o',
+  'vot',
+  'concurs',
+  'concursul',
+  'bursa',
+  'scholarship',
+  'competitie',
+  'dans',
+  'dance',
+  'ajuta-ma',
+  'ajuta ma',
+  'am nevoie de ajutorul tau'
+]
+const prizeWords = [
+  'premiu',
+  'revendica',
+  'ai castigat',
+  'am castigat',
+  'castig',
+  'castiga',
+  'castigati',
+  'castigat rapid',
+  'castig garantat',
+  'bani rapizi',
+  'recompensa',
+  'profit rapid',
+  'profit garantat',
+  'investitie',
+  'investeste acum',
+  'investit',
+  'fara risc',
+  'castiga acum',
+  'plata zilnica',
+  'pe saptamana',
+  'de acasa',
+  'oferte uimitoare',
+  'nu le ratati',
+  'oportunitate remote'
+]
 const friendFamilyWords = ['mama', 'tata', 'frate', 'sora', 'fiule', 'prietene', 'sunt eu', 'whatsapp nou', 'poti sa ma ajuti', 'am nevoie de bani', 'mi s-a blocat cardul', 'mi sa blocat cardul']
 const marketplaceWords = ['olx', 'vanzare', 'cumparator', 'cumparatorul', 'articol platit', 'livrare prin olx', 'primesti banii', 'incasare', 'incasezi']
 const authorityPressureWords = ['urgenta', 'urgent', 'document', 'ancheta', 'cont compromis', 'dosar', 'activitate suspecta', 'juridica']
@@ -320,6 +360,16 @@ export const scenarioRules = [
     recommendations: ['Nu introduce coduri de asociere WhatsApp.', 'Dacă ai introdus un cod, securizează imediat contul.']
   },
   {
+    id: 'vote-contest-link',
+    label: 'Vot sau concurs cu link suspect',
+    description: 'Mesajul cere un vot sau ajutor într-un concurs și include un link. Acest tipar este folosit des pentru preluarea conturilor sau colectarea de date.',
+    severity: 'high',
+    minimumRisk: 'high',
+    weight: 4,
+    match: (ids) => ids.has('vote-contest') && ids.has('suspicious-link'),
+    recommendations: ['Nu intra pe linkul de vot primit prin mesaj.', 'Verifică persoana printr-un canal separat înainte să ajuți cu voturi sau concursuri.']
+  },
+  {
     id: 'whatsapp-code-request',
     label: 'Cerere de cod WhatsApp',
     description: 'Mesajul menționează WhatsApp și cere un cod de verificare sau asociere.',
@@ -358,6 +408,16 @@ export const scenarioRules = [
     weight: 3,
     match: (ids, text) => ids.has('quick-money-strong') && hasAny(text, ['revendica', 'activeaza', 'verifica', 'confirma', 'raspunde']) && (ids.has('suspicious-link') || ids.has('urgency') || ids.has('payment')),
     recommendations: ['Nu revendica premii prin linkuri primite în mesaje.', 'Verifică sursa dintr-un canal oficial.']
+  },
+  {
+    id: 'quick-money-link',
+    label: 'Câștig rapid sau investiție cu link',
+    description: 'Mesajul promite bani rapizi, venit de acasă, profit sau o ofertă financiară și include un link.',
+    severity: 'high',
+    minimumRisk: 'high',
+    weight: 4,
+    match: (ids) => ids.has('quick-money-strong') && ids.has('suspicious-link'),
+    recommendations: ['Nu accesa linkuri care promit câștiguri rapide.', 'Nu trimite bani și nu introduce date personale pentru astfel de oferte.']
   },
   {
     id: 'quick-money-messaging',
