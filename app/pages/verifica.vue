@@ -30,4 +30,37 @@
 
 <script setup>
 const result = ref(null)
+
+useSeoMeta({
+  title: 'Verifică un mesaj suspect | NuPuneBotul.ro',
+  description: 'Lipește un SMS, email sau mesaj de WhatsApp suspect și vezi indicii educaționale despre linkuri dubioase, coduri, date bancare și alte semne de risc.',
+  ogTitle: 'Verifică un mesaj suspect',
+  ogDescription: 'Analiză rapidă, educațională, pentru mesaje suspecte. Nu introduce date sensibile și verifică separat prin canal oficial.',
+  ogType: 'website',
+  ogUrl: 'https://nupunebotul.ro/verifica',
+  twitterCard: 'summary',
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: 'https://nupunebotul.ro/verifica' }],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Verifică un mesaj suspect',
+        description: 'Instrument educațional pentru identificarea semnelor de risc din mesaje suspecte.',
+        inLanguage: 'ro-RO',
+        url: 'https://nupunebotul.ro/verifica',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: 'NuPuneBotul.ro',
+          url: 'https://nupunebotul.ro'
+        }
+      })
+    }
+  ]
+})
 </script>

@@ -1,2 +1,4 @@
 User-Agent: *
-Disallow:
+Disallow: /teste-analizor
+
+Sitemap: https://nupunebotul.ro/sitemap.xml

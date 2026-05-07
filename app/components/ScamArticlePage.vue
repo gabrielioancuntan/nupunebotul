@@ -53,11 +53,25 @@
         </ul>
       </section>
 
+      <section v-if="article.safeActions" class="rounded-lg border border-[#dce5dc] bg-[#f7fbf7] p-6">
+        <h2 class="mb-3 mt-0 text-2xl text-[#162018]">{{ article.safeActions.title }}</h2>
+        <ul class="grid gap-2 pl-5 text-[#46534a]">
+          <li v-for="item in article.safeActions.items" :key="item">{{ item }}</li>
+        </ul>
+      </section>
+
       <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
         <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Ce să nu faci</h2>
         <ul class="grid gap-2 pl-5 text-[#46534a]">
           <li v-for="item in article.dontDo" :key="item">{{ item }}</li>
         </ul>
+      </section>
+
+      <section v-if="article.notAutomaticallyScam" class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
+        <h2 class="mb-3 mt-0 text-2xl text-[#162018]">{{ article.notAutomaticallyScam.title }}</h2>
+        <p v-for="paragraph in article.notAutomaticallyScam.paragraphs" :key="paragraph" class="text-[#46534a]">
+          {{ paragraph }}
+        </p>
       </section>
 
       <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
@@ -68,8 +82,8 @@
       </section>
 
       <section class="rounded-lg border border-[#dce5dc] bg-[#fff7e6] p-6">
-        <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Exemplu de mesaj fals</h2>
-        <p class="text-[#5b3b0a]">Exemplele de mai jos sunt fictive, dar inspirate din tipare des întâlnite.</p>
+        <h2 class="mb-3 mt-0 text-2xl text-[#162018]">{{ article.examplesTitle || 'Exemplu de mesaj fals' }}</h2>
+        <p class="text-[#5b3b0a]">{{ article.examplesIntro || 'Exemplele de mai jos sunt fictive, dar inspirate din tipare des întâlnite.' }}</p>
         <blockquote v-for="example in article.examples" :key="example" class="rounded-lg bg-white/80 p-4 text-[#29372f]">
           {{ example }}
         </blockquote>
@@ -110,10 +124,9 @@
       </section>
 
       <section class="rounded-lg border border-[#bbdec8] bg-[#eefaf1] p-6">
-        <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Ai primit un mesaj asemănător?</h2>
+        <h2 class="mb-3 mt-0 text-2xl text-[#162018]">{{ article.cta?.title || 'Ai primit un mesaj asemănător?' }}</h2>
         <p class="max-w-[720px] text-[#46534a]">
-          Nu te grăbi să dai click, să trimiți bani sau să introduci coduri. Lipește textul
-          în verificator și caută separat canalul oficial al instituției sau platformei.
+          {{ article.cta?.text || 'Nu te grăbi să dai click, să trimiți bani sau să introduci coduri. Lipește textul în verificator și caută separat canalul oficial al instituției sau platformei.' }}
         </p>
         <div class="mt-4 flex flex-wrap gap-3">
           <NuxtLink to="/verifica" class="rounded-md bg-[#0f766e] px-5 py-3 font-extrabold text-white">

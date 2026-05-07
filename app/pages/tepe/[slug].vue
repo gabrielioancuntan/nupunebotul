@@ -9,7 +9,7 @@ const route = useRoute()
 const article = getScamArticle(route.params.slug)
 
 if (!article) {
-  throw createError({ statusCode: 404, statusMessage: 'Articolul nu a fost gasit' })
+  throw createError({ statusCode: 404, statusMessage: 'Articolul nu a fost găsit' })
 }
 
 useSeoMeta({
@@ -18,6 +18,7 @@ useSeoMeta({
   ogTitle: article.seoTitle,
   ogDescription: article.seoDescription,
   ogType: 'article',
+  ogUrl: `https://nupunebotul.ro/tepe/${article.slug}`,
   twitterCard: 'summary',
   robots: 'index, follow'
 })

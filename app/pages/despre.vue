@@ -7,6 +7,14 @@
         NuPuneBotul.ro este un proiect românesc, simplu și educativ, pentru oameni care vor să observe mai ușor semnele de risc din mesajele suspecte.
         Instrumentul nu oferă verdicte oficiale și nu confirmă că un mesaj este în regulă.
       </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <NuxtLink to="/verifica" class="rounded-md bg-[#0f766e] px-5 py-3 font-extrabold text-white">
+          Verifică un mesaj suspect
+        </NuxtLink>
+        <NuxtLink to="/tepe" class="rounded-md border border-[#bfcdc0] bg-white px-5 py-3 font-extrabold text-[#162018]">
+          Vezi biblioteca de țepe
+        </NuxtLink>
+      </div>
 
       <div class="mt-8 grid grid-cols-3 gap-[18px] max-md:grid-cols-1">
         <article class="rounded-lg border border-[#dce5dc] bg-white/75 p-[22px]">
@@ -29,3 +37,38 @@
     </div>
   </section>
 </template>
+
+<script setup>
+useSeoMeta({
+  title: 'Despre NuPuneBotul.ro | Educație anti-țeapă în română',
+  description: 'Află de ce există NuPuneBotul.ro: un proiect educațional românesc pentru recunoașterea mesajelor suspecte, fără verdicte oficiale sau promisiuni perfecte.',
+  ogTitle: 'Despre NuPuneBotul.ro',
+  ogDescription: 'Un proiect simplu și educațional despre mesaje suspecte, phishing și țepe online frecvente în România.',
+  ogType: 'website',
+  ogUrl: 'https://nupunebotul.ro/despre',
+  twitterCard: 'summary',
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: 'https://nupunebotul.ro/despre' }],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: 'Despre NuPuneBotul.ro',
+        description: 'Proiect educațional românesc pentru prevenirea fraudelor online prin exemple clare și verificare separată.',
+        inLanguage: 'ro-RO',
+        url: 'https://nupunebotul.ro/despre',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: 'NuPuneBotul.ro',
+          url: 'https://nupunebotul.ro'
+        }
+      })
+    }
+  ]
+})
+</script>

@@ -228,6 +228,7 @@ useSeoMeta({
   ogTitle: 'Contact NuPuneBotul.ro',
   ogDescription: 'Trimite exemple anonimizate de mesaje suspecte, sugestii sau întrebări, fără date sensibile.',
   ogType: 'website',
+  ogUrl: 'https://nupunebotul.ro/contact',
   twitterCard: 'summary',
   robots: 'index, follow'
 })

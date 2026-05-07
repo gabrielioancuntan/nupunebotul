@@ -132,6 +132,21 @@
         </section>
 
         <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
+          <h2 class="mb-3 mt-0 text-2xl text-[#162018]">După quiz</h2>
+          <p class="max-w-[760px] text-[#46534a]">
+            Dacă ai un mesaj concret, verifică-l separat. Dacă vrei exemple pe categorii, mergi în biblioteca de țepe.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <NuxtLink to="/verifica" class="rounded-md bg-[#0f766e] px-5 py-3 font-extrabold text-white">
+              Verifică un mesaj suspect
+            </NuxtLink>
+            <NuxtLink to="/tepe" class="rounded-md border border-[#bfcdc0] bg-white px-5 py-3 font-extrabold text-[#162018]">
+              Vezi biblioteca de țepe
+            </NuxtLink>
+          </div>
+        </section>
+
+        <section class="rounded-lg border border-[#dce5dc] bg-white/75 p-6">
           <h2 class="mb-3 mt-0 text-2xl text-[#162018]">Întrebări frecvente</h2>
           <div v-for="item in faq" :key="item.question" class="border-t border-[#dce5dc] py-4 first:border-t-0">
             <h3 class="m-0 text-lg text-[#162018]">{{ item.question }}</h3>
@@ -375,6 +390,7 @@ useSeoMeta({
   ogTitle: 'Quiz: Cât de ușor recunoști o țeapă?',
   ogDescription: 'Testează-ți atenția cu 10 situații scurte despre fraude online și vezi explicațiile la final.',
   ogType: 'website',
+  ogUrl: 'https://nupunebotul.ro/quiz',
   twitterCard: 'summary',
   robots: 'index, follow'
 })

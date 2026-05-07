@@ -196,6 +196,11 @@
 <script setup>
 const suspiciousScenarios = [
   {
+    title: "SMS spam sau link dubios",
+    text: "Mesaje scurte cu linkuri neclare, verificări urgente sau expeditor greu de verificat.",
+    to: "/tepe/sms-spam",
+  },
+  {
     title: "Curier sau colet blocat",
     text: "Taxă mică, redirecționare, locker sau link pentru livrare.",
     to: "/tepe/colet-fals",
@@ -209,6 +214,11 @@ const suspiciousScenarios = [
     title: "ANAF, amendă sau rambursare",
     text: "Datorii, penalizări, rambursări și linkuri cu ton oficial.",
     to: "/tepe/anaf-fals",
+  },
+  {
+    title: "Premiu, cadou sau selecție falsă",
+    text: "„Ai câștigat”, card cadou, răspunde DA sau link de revendicare.",
+    to: "/tepe/premii-false",
   },
   {
     title: "WhatsApp, cod sau concurs",
@@ -246,4 +256,32 @@ const suspiciousScenarios = [
     to: "/tepe/uzurpare-identitate",
   },
 ];
+
+useSeoMeta({
+  title: 'Verifică mesaje suspecte și țepe online | NuPuneBotul.ro',
+  description: 'Verifică rapid un mesaj suspect și învață să recunoști SMS-uri false, phishing, colete false, bănci false, premii, investiții și joburi suspecte.',
+  ogTitle: 'NuPuneBotul.ro - verifică mesaje suspecte',
+  ogDescription: 'Un site educațional în română pentru mesaje suspecte, phishing, linkuri dubioase și țepe online frecvente.',
+  ogType: 'website',
+  ogUrl: 'https://nupunebotul.ro',
+  twitterCard: 'summary',
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: 'https://nupunebotul.ro' }],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'NuPuneBotul.ro',
+        url: 'https://nupunebotul.ro',
+        inLanguage: 'ro-RO',
+        description: 'Instrument educațional pentru verificarea mesajelor suspecte și recunoașterea fraudelor online.'
+      })
+    }
+  ]
+})
 </script>

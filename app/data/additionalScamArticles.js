@@ -1,5 +1,154 @@
 export const additionalScamArticles = [
   {
+    slug: 'sms-spam',
+    category: 'SMS / phishing',
+    cardTitle: 'SMS spam și phishing',
+    title: 'SMS spam și phishing: semne clare că mesajul merită verificat',
+    seoTitle: 'SMS spam și phishing: cum recunoști mesajele suspecte | NuPuneBotul.ro',
+    seoDescription: 'Învață să recunoști SMS-urile suspecte: cont blocat, colet întârziat, premii false, linkuri dubioase, cereri de coduri și alte semne de risc.',
+    description: 'SMS-urile suspecte folosesc urgență, frică, premii false sau linkuri dubioase ca să te convingă să apeși, să trimiți date ori să confirmi coduri.',
+    summary: 'Linkuri dubioase, cont blocat, premii false, cereri de coduri sau date și mesaje spam care merită verificate.',
+    intro: [
+      'Multe fraude încep cu un SMS scurt. Textul poate părea de la o bancă, curier, magazin, instituție sau firmă cunoscută, dar scopul este să te grăbească.',
+      'Un SMS devine riscant mai ales când combină presiunea cu un link neclar, lipsă de context și cereri de date, bani sau coduri.'
+    ],
+    howItStarts: [
+      'Primești un mesaj despre un cont suspendat, o plată blocată, un colet întârziat, un premiu sau o ofertă care pare prea bună.',
+      'Mesajul te împinge spre un link, un răspuns rapid sau o verificare urgentă, fără să îți lase timp să verifici separat.'
+    ],
+    goals: ['date personale', 'date de card', 'parole', 'coduri OTP', 'plăți mici inițiale', 'acces la conturi'],
+    warningSigns: [
+      'cere acțiune imediată sau folosește presiune de timp',
+      'cere parole, OTP, PIN, CNP, date de card sau alte date sensibile',
+      'include un link scurt, dubios sau greu de verificat',
+      'nu spune clar cine trimite mesajul sau de ce ai primit notificarea',
+      'promite premii, bani, cadouri sau acces exclusiv',
+      'vorbește despre cont blocat, verificare urgentă sau activitate neobișnuită',
+      'invocă o livrare, taxă mică sau problemă neașteptată cu un colet',
+      'folosește multe majuscule, semne de exclamare sau limbaj agresiv',
+      'propune împrumuturi, investiții sau joburi nesolicitate',
+      'pare oficial, dar nu poate fi verificat ușor din surse independente'
+    ],
+    safeActions: {
+      title: 'Ce să faci în loc să apeși',
+      items: [
+        'Nu apăsa pe linkul din SMS.',
+        'Nu trimite coduri, parole sau date bancare.',
+        'Verifică situația în aplicația sau site-ul oficial.',
+        'Intră manual pe site, nu din SMS.',
+        'Contactează instituția printr-un canal oficial.',
+        'Dacă mesajul rămâne dubios, șterge-l și raportează-l ca spam sau phishing.'
+      ]
+    },
+    dontDo: [
+      'Nu apăsa pe linkul din SMS.',
+      'Nu trimite coduri, parole sau date bancare.',
+      'Nu răspunde cu DA doar ca să vezi ce urmează.',
+      'Nu instala aplicații sau fișiere indicate în mesaj.',
+      'Nu lua decizii financiare dintr-un SMS primit pe neașteptate.'
+    ],
+    notAutomaticallyScam: {
+      title: 'Ce nu înseamnă automat țeapă',
+      paragraphs: [
+        'Nu orice SMS despre bancă, livrare, programare sau cont este fraudă. Există notificări legitime, inclusiv mesaje cu AWB, cod de ridicare sau informări de securitate.',
+        'Combinația contează: grabă, link dubios, lipsă de context și cerere de date, bani sau coduri. Dacă apar împreună, verifică separat înainte să faci orice acțiune.'
+      ]
+    },
+    ifVictim: [
+      'Dacă ai introdus date de card, contactează imediat banca.',
+      'Dacă ai trimis un cod de verificare, securizează contul afectat cât mai repede.',
+      'Schimbă parola contului dacă ai autentificat pe o pagină primită prin SMS.',
+      'Păstrează mesajul și raportează-l ca spam sau phishing.'
+    ],
+    examplesTitle: 'Exemple de mesaje care merită verificate',
+    examplesIntro: 'Exemplele de mai jos sunt fictive, dar inspirate din tipare comune de SMS spam și phishing.',
+    examples: [
+      'BRD: contul dumneavoastră a fost suspendat temporar. Verificați urgent accesul aici: https://client-validare.top',
+      'Curier: coletul nu a putut fi livrat. Actualizați adresa pentru reprogramare: https://livrare-info.click',
+      'Felicitări! Ai câștigat un card cadou. Revendică premiul în următoarele 10 minute: bit.ly/premiu-ro',
+      'Ai fost selectat pentru o ofertă specială. Răspunde DA pentru activare.',
+      'Împrumut preaprobat de 20.000 RON. Confirmă datele pentru virare rapidă.',
+      'Job remote, 900 RON pe zi. Locuri limitate. Intră aici pentru task-uri.',
+      'Contul tău necesită verificare urgentă. Confirmă codul primit prin SMS.',
+      'Ai o plată blocată. Accesează linkul pentru a evita suspendarea serviciului.'
+    ],
+    checklist: [
+      'Mesajul are sens în contextul tău real?',
+      'Poți verifica direct în aplicația sau site-ul oficial?',
+      'Linkul pare domeniu oficial sau doar seamănă?',
+      'Ți se cer coduri, card, parolă sau bani?',
+      'Mesajul încearcă să te grăbească?'
+    ],
+    faq: [
+      { question: 'Un SMS cu AWB este automat țeapă?', answer: 'Nu. Un AWB poate apărea într-o notificare legitimă. Devine suspect când apare cu taxă urgentă, link dubios, lipsă de context sau cerere de date.' },
+      { question: 'Dacă mesajul pare de la bancă, ce fac?', answer: 'Nu folosi linkul din SMS. Deschide aplicația băncii sau contactează banca prin numărul oficial.' },
+      { question: 'Pot avea încredere într-un link scurt?', answer: 'Nu ca verificare principală. Linkurile scurte ascund destinația, deci este mai sigur să intri manual pe site-ul oficial.' },
+      { question: 'E suspect dacă scrie doar „ai fost selectat”?', answer: 'Poate fi doar spam, dar merită atenție. Devine mai riscant dacă promite bani, cere răspuns rapid sau trimite spre un link.' },
+      { question: 'Ce fac dacă am apăsat deja?', answer: 'Nu introduce date. Dacă ai completat card, parolă sau coduri, contactează banca ori serviciul afectat și schimbă parola cât mai repede.' }
+    ],
+    cta: {
+      title: 'Ai primit un SMS dubios?',
+      text: 'Nu te grăbi. Verifică separat înainte să apeși pe link sau să trimiți date.'
+    },
+    related: ['phishing', 'banca-falsa', 'colet-fals', 'investitii-false', 'job-fals']
+  },
+  {
+    slug: 'premii-false',
+    category: 'Premii / promoții',
+    cardTitle: 'Premii false',
+    title: 'Premii false: „ai câștigat”, card cadou și link de revendicare',
+    seoTitle: 'Premii false: cum recunoști mesajele cu „ai câștigat” | NuPuneBotul.ro',
+    seoDescription: 'Ghid despre mesaje cu premii false, carduri cadou, „ai fost selectat”, răspunde DA și linkuri de revendicare care cer date sau bani.',
+    description: 'Premiile false folosesc entuziasmul și graba ca să te ducă spre un link, o taxă de procesare, date de card sau coduri de verificare.',
+    summary: 'Mesaje cu „ai câștigat”, card cadou, „ai fost selectat”, răspunde DA și revendicare prin link.',
+    intro: [
+      'Un mesaj despre un premiu poate părea inofensiv, mai ales când suma este atractivă sau brandul pare cunoscut.',
+      'Riscul apare când premiul nesolicitat cere un pas rapid: intră pe link, răspunde DA, achită o taxă sau completează datele cardului.'
+    ],
+    howItStarts: [
+      'Primești SMS, email sau mesaj pe WhatsApp cu „ai câștigat”, „ai fost selectat” sau „revendică acum”.',
+      'Apoi apare un link, o taxă de procesare, un formular cu date personale sau o cerere de cod.'
+    ],
+    goals: ['date personale', 'date de card', 'taxe inventate', 'abonări ascunse', 'coduri de verificare'],
+    warningSigns: [
+      'premiu nesolicitat de la un concurs la care nu ai participat',
+      'card cadou sau recompensă cu termen foarte scurt',
+      'cerere de taxă pentru revendicare',
+      'link scurtat sau domeniu care doar imită un brand',
+      'mesaj de tip „răspunde DA” fără context clar'
+    ],
+    dontDo: [
+      'Nu plăti taxe ca să primești un premiu.',
+      'Nu introduce cardul pentru o recompensă primită pe neașteptate.',
+      'Nu trimite coduri de verificare pentru validarea premiului.',
+      'Nu te baza pe logo sau pe numele brandului din mesaj.'
+    ],
+    ifVictim: [
+      'Contactează banca dacă ai introdus date de card sau ai făcut o plată.',
+      'Schimbă parolele dacă ai creat cont prin linkul primit.',
+      'Dezactivează eventuale abonări suspecte și urmărește tranzacțiile.',
+      'Raportează mesajul ca spam sau phishing.'
+    ],
+    examples: [
+      'Felicitări! Ai câștigat un card cadou de 1.000 RON. Revendică premiul aici: https://premiu-client.top',
+      'Ai fost selectat pentru o recompensă exclusivă. Răspunde DA și achită taxa de procesare pentru activare.'
+    ],
+    checklist: [
+      'Ai participat la acel concurs?',
+      'Ți se cere să plătești pentru premiu?',
+      'Linkul pare verificabil?',
+      'Ți se cere cardul sau un cod?',
+      'Mesajul te presează să acționezi acum?'
+    ],
+    faq: [
+      { question: 'Poate exista un premiu real prin SMS?', answer: 'Da, dar trebuie verificat separat prin site-ul oficial al campaniei sau al companiei, nu prin linkul din mesaj.' },
+      { question: 'De ce cer o taxă mică?', answer: 'Taxa mică reduce suspiciunea și poate fi folosită pentru a obține datele cardului.' },
+      { question: 'E sigur să răspund DA?', answer: 'Nu este o verificare sigură. Poate confirma că numărul este activ sau poate declanșa pași suplimentari.' },
+      { question: 'Ce fac dacă am completat formularul?', answer: 'Schimbă parolele relevante, contactează banca dacă ai dat date de card și urmărește tranzacțiile.' }
+    ],
+    related: ['sms-spam', 'phishing', 'investitii-false']
+  },
+  {
     slug: 'investitii-false',
     category: 'Investitii',
     cardTitle: 'Investitii false',
@@ -20,6 +169,8 @@ export const additionalScamArticles = [
     warningSigns: [
       'profit garantat sau risc prezentat ca aproape zero',
       'presiune sa investesti imediat',
+      'mesaj nesolicitat de la un broker sau consultant necunoscut',
+      'promisiuni de câștig rapid prin crypto, acțiuni sau platforme obscure',
       'broker sau firma greu de verificat',
       'castiguri afisate doar in platforma lor',
       'cereri de taxe suplimentare ca sa iti retragi banii'
@@ -53,7 +204,7 @@ export const additionalScamArticles = [
       { question: 'Pot recupera banii platind o taxa?', answer: 'Fii foarte atent. Cererea de taxa pentru deblocare este frecventa in fraude.' },
       { question: 'Ce verific inainte sa investesc?', answer: 'Verifica firma din surse independente, autorizarea, domeniul site-ului si modul in care se fac platile.' }
     ],
-    related: ['banca-falsa', 'phishing', 'caraus-de-bani']
+    related: ['sms-spam', 'banca-falsa', 'phishing', 'caraus-de-bani']
   },
   {
     slug: 'job-fals',
@@ -75,8 +226,11 @@ export const additionalScamArticles = [
     goals: ['taxe de training', 'comisioane pentru task-uri', 'date personale', 'date bancare', 'folosirea contului tau pentru bani suspecti'],
     warningSigns: [
       'castig mare pentru efort foarte mic',
+      'job nesolicitat primit prin SMS, WhatsApp sau Telegram',
+      'lucru de acasă foarte bine plătit, fără interviu real',
       'nu exista interviu real sau contract clar',
       'ti se cer bani ca sa incepi',
+      'pași ciudați: garanții, activări, task-uri blocate sau comisioane',
       'compania nu poate fi verificata',
       'grupuri cu persoane care par sa confirme castiguri'
     ],
@@ -109,7 +263,7 @@ export const additionalScamArticles = [
       { question: 'Pot trimite actul de identitate?', answer: 'Nu inainte sa verifici angajatorul din surse independente.' },
       { question: 'Ce legatura are cu carausii de bani?', answer: 'Unele joburi false ajung sa ceara primirea si retrimiterea unor sume prin contul tau.' }
     ],
-    related: ['caraus-de-bani', 'phishing', 'investitii-false']
+    related: ['sms-spam', 'premii-false', 'caraus-de-bani', 'phishing', 'investitii-false']
   },
   {
     slug: 'achizitii-false',
@@ -243,6 +397,7 @@ export const additionalScamArticles = [
     goals: ['parole', 'coduri OTP', 'date personale', 'date de card', 'instalarea de malware', 'acces la conturi'],
     warningSigns: [
       'link scurtat sau domeniu apropiat de cel real',
+      'formulări de tip „verifică acum”, „cont suspendat” sau „alertă de securitate”',
       'cerere de autentificare imediata',
       'formular care cere prea multe date',
       'ton urgent sau amenintator',
@@ -277,7 +432,7 @@ export const additionalScamArticles = [
       { question: 'Pot deschide atasamentul?', answer: 'Nu daca mesajul este neasteptat sau sursa nu este verificata.' },
       { question: 'Cum verific un link?', answer: 'Nu te baza pe linkul din mesaj. Intra manual in site-ul sau aplicatia oficiala.' }
     ],
-    related: ['banca-falsa', 'colet-fals', 'achizitii-false']
+    related: ['sms-spam', 'banca-falsa', 'colet-fals', 'achizitii-false']
   },
   {
     slug: 'caraus-de-bani',
