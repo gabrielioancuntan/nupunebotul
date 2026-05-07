@@ -300,4 +300,10 @@ function mismatchLabel(testCase) {
 
   return "De calibrat";
 }
+
+useSeoMeta({
+  title: 'Teste interne analizor | NuPuneBotul.ro',
+  description: 'Pagină internă pentru calibrarea analizorului de mesaje suspecte.',
+  robots: 'noindex, nofollow'
+})
 </script>

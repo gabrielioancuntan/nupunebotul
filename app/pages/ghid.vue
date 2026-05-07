@@ -237,6 +237,7 @@ useSeoMeta({
   ogTitle: 'Ghid anti-fraudă pentru mesaje, apeluri și situații suspecte',
   ogDescription: 'Reguli clare: oprește-te, verifică separat și protejează-ți rapid conturile și banii.',
   ogType: 'website',
+  ogUrl: 'https://nupunebotul.ro/ghid',
   twitterCard: 'summary',
   robots: 'index, follow'
 })

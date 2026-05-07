@@ -13,6 +13,7 @@ useSeoMeta({
   ogTitle: article.seoTitle,
   ogDescription: article.seoDescription,
   ogType: 'article',
+  ogUrl: `https://nupunebotul.ro/tepe/${article.slug}`,
   twitterCard: 'summary',
   robots: 'index, follow'
 })

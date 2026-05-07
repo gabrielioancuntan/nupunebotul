@@ -21,6 +21,7 @@ export const scamArticles = [
     goals: ['datele cardului', 'o plată mică inițială', 'coduri 3D Secure', 'date personale de livrare', 'acces la conturi prin pagini false'],
     warningSigns: [
       'colet blocat sau reținut fără detalii clare despre expeditor',
+      'colet întârziat, nelivrat sau redirecționat fără context clar despre comandă',
       'taxă foarte mică cerută urgent',
       'link cu domeniu ciudat, scurtat sau diferit de site-ul oficial',
       'cerere de date card pentru o simplă livrare',
@@ -67,7 +68,7 @@ export const scamArticles = [
         answer: 'Sumele mici par mai credibile și îi fac pe oameni să acționeze repede, fără verificări.'
       }
     ],
-    related: ['olx', 'whatsapp-cod', 'banca-falsa']
+    related: ['sms-spam', 'olx', 'whatsapp-cod', 'banca-falsa']
   },
   {
     slug: 'banca-falsa',
@@ -89,7 +90,9 @@ export const scamArticles = [
     goals: ['coduri OTP', 'parole', 'date card', 'CVV/CVC', 'PIN', 'acces la aplicația bancară'],
     warningSigns: [
       'cont blocat, suspendat sau restricționat temporar',
+      'verificare urgentă sau activitate neobișnuită anunțată prin SMS cu link',
       'cerere de OTP, parolă, PIN sau cod de autentificare',
+      'cerere de date card, CVV sau actualizare de securitate într-o pagină primită prin mesaj',
       'link care nu este domeniul oficial al băncii',
       'amenințare cu închiderea contului dacă nu acționezi imediat',
       'formulări vagi precum „stimate client” sau „verifică identitatea”'
@@ -135,7 +138,7 @@ export const scamArticles = [
         answer: 'Da. Unele mesaje false sunt scrise corect și folosesc logo-uri sau nume reale.'
       }
     ],
-    related: ['anaf-fals', 'whatsapp-cod', 'olx']
+    related: ['sms-spam', 'phishing', 'anaf-fals', 'whatsapp-cod', 'olx']
   },
   {
     slug: 'anaf-fals',

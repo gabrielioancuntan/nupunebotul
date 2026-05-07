@@ -120,6 +120,22 @@ export const scamTestCases = [
     notes: 'Cerere directa de cod de verificare.'
   },
   {
+    id: 'high-whatsapp-vote-adeline-001',
+    category: 'Risc ridicat',
+    label: 'Vot fals la concurs de dans',
+    message: 'Bună! Vă rog să o votați pe Adeline în concursul de dans, am nevoie de ajutorul tău: [link fals]',
+    expectedRisk: 'high',
+    notes: 'Vot/concurs, cerere de ajutor și link. Tipar folosit frecvent pentru preluarea contului sau phishing.'
+  },
+  {
+    id: 'high-quick-money-home-001',
+    category: 'Risc ridicat',
+    label: 'Câștig rapid de acasă',
+    message: 'Câștigă 2000 EUR pe săptămână de acasă! Oferte uimitoare înăuntru! Nu le ratați: [link fals]',
+    expectedRisk: 'high',
+    notes: 'Promisiune de câștig rapid, sumă mare, lucru de acasă și link suspect.'
+  },
+  {
     id: 'high-prize-001',
     category: 'Risc ridicat',
     label: 'Premiu fals',
