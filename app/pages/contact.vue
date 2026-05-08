@@ -112,7 +112,11 @@
 
           <p class="mb-0 mt-4 text-sm text-[#536056]">
             Mesajele primite pot fi folosite pentru îmbunătățirea site-ului și a bibliotecii de exemple.
-            Răspunsul personal nu este garantat imediat.
+            Nu trimite date sensibile. Răspunsul personal nu este garantat imediat.
+            Detalii despre prelucrarea datelor sunt în
+            <NuxtLink to="/confidentialitate" class="font-extrabold text-[#0f766e] hover:text-[#0b5f59]">
+              Politica de confidențialitate
+            </NuxtLink>.
           </p>
         </form>
       </div>
@@ -130,6 +134,7 @@
             <NuxtLink to="/verifica" class="rounded-md bg-[#162018] px-4 py-2 font-bold text-white">Verifică un mesaj</NuxtLink>
             <NuxtLink to="/tepe" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Biblioteca de țepe</NuxtLink>
             <NuxtLink to="/ghid" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Ghid anti-fraudă</NuxtLink>
+            <NuxtLink to="/confidentialitate" class="rounded-md border border-[#bfcdc0] bg-white px-4 py-2 font-bold text-[#162018]">Confidențialitate</NuxtLink>
           </div>
         </section>
 
