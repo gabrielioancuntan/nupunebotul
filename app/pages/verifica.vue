@@ -20,6 +20,15 @@
         Analiza se face local în browser și nu este necesar să lipești date sensibile.
       </div>
 
+      <div class="rounded-lg border border-[#dce5dc] bg-[#f7fbf7] p-4 text-sm leading-relaxed text-[#46534a]">
+        <strong class="text-[#162018]">Limitare importantă:</strong>
+        Rezultatul este orientativ și educațional. Nu trata un risc scăzut ca garanție de siguranță.
+        Verifică separat prin canalul oficial.
+        <NuxtLink to="/disclaimer" class="font-extrabold text-[#0f766e] hover:text-[#0b5f59]">
+          Citește disclaimerul complet.
+        </NuxtLink>
+      </div>
+
       <div class="grid grid-cols-[minmax(0,1fr)_minmax(300px,0.85fr)] items-start gap-[22px] max-[860px]:grid-cols-1">
         <ScamCheckerForm @analyzed="result = $event" />
         <RiskResultCard :result="result" />
