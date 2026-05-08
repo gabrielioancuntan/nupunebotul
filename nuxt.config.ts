@@ -8,6 +8,16 @@ export default defineNuxtConfig({
       formspreeEndpoint: process.env.NUXT_PUBLIC_FORMSPREE_ENDPOINT || ''
     }
   },
+  app: {
+    head: {
+      script: [
+        {
+          src: '/_vercel/insights/script.js',
+          defer: true
+        }
+      ]
+    }
+  },
   tailwindcss: {
     cssPath: '~/assets/css/main.css'
   },
